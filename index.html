@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+
+<body>
+<!-- Camila Andrea Muñoz -->
+ <!-- Nicolas  Bejarano -->
+    <section>
+
+        <div class="agregar-tarea">
+            <h1> To Do List</h1>
+            <input type="text" id="descripcion">
+            <input type="checkbox" name="" id="">
+            <button onclick="agregar()"> Agregar </button>
+
+        </div>
+
+        <div class="lista-tareas">
+            <h1>Tareas</h1>
+            <table>
+                <tr>
+                    <th>Descripcion</th>
+                    <th></th>
+                    <th>Fecha</th>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+    </section>
+
+    <script>
+        // const x = document.getElementById("result");
+        const ahora = new Date();
+        const fecha = ahora.toLocaleDateString('es-ES');
+
+        // if (typeof (Storage) !== "undefined") {
+        //     localStorage.setItem("fecha", fecha);
+        //     x.innerHTML = localStorage.getItem("fecha");
+        // } else {
+        //     x.innerHTML = "Sorry, no Web storage support!";
+        // }
+        function agregar() {
+            const todo = {
+                descrip: "Comprar leche",
+                check: true,
+                fecha: fecha,
+                fullName: function () {
+                    return this.descrip + " " + this.fecha;
+                }
+            };
+        }
+        document.getElementById("demo").innerHTML = todo.fullName();
+    </script>
+</body>
+
+</html>
