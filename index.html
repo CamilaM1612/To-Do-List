@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>To Do List</title>
 </head>
 
@@ -14,8 +15,9 @@
 
         <div class="agregar-tarea">
             <h1> To Do List</h1>
-            <input type="text" id="descripcion">
-            <input type="checkbox" name="" id="">
+
+            <input type="text" id="descripcion" placeholder="Escribe una tarea">
+
             <button onclick="agregar()"> Agregar </button>
 
         </div>
@@ -23,16 +25,17 @@
         <div class="lista-tareas">
             <h1>Tareas</h1>
             <table>
-                <tr>
-                    <th>Descripcion</th>
-                    <th></th>
-                    <th>Fecha</th>
-                </tr>
-                <tr>
-                    <td>
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Completado</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
 
-                    </td>
-                </tr>
+                <tbody id="tablaTareas">
+
+                </tbody>
             </table>
         </div>
 
@@ -40,27 +43,30 @@
     </section>
 
     <script>
-        // const x = document.getElementById("result");
-        const ahora = new Date();
-        const fecha = ahora.toLocaleDateString('es-ES');
+        function agregar(){
+            const descripcion = document.getElementById("descripcion").value;
 
-        // if (typeof (Storage) !== "undefined") {
-        //     localStorage.setItem("fecha", fecha);
-        //     x.innerHTML = localStorage.getItem("fecha");
-        // } else {
-        //     x.innerHTML = "Sorry, no Web storage support!";
-        // }
-        function agregar() {
-            const todo = {
-                descrip: "Comprar leche",
-                check: true,
-                fecha: fecha,
-                fullName: function () {
-                    return this.descrip + " " + this.fecha;
-                }
-            };
+            const ahora = new Date();
+            const fecha = ahora.toLocaleDateString('es-ES');
+
+            if (descripcion===""){
+                alert("ingrese una tarea");
+                return;
+            }
+
+            const fila = document.createElement("tr");
+
+            fila.innerHTML = `
+                <td>${descripcion}</td>
+                <td><input type="checkbox"></td>
+                <td>${fecha}</td>
+            `;
+
+            document.getElementById("tablaTareas").appendChild(fila);
+
+            // Limpiar 
+            document.getElementById("descripcion").value = "";
         }
-        document.getElementById("demo").innerHTML = todo.fullName();
     </script>
 </body>
 

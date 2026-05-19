@@ -1,5 +1,29 @@
-section{
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+#descripcion{
+    border-radius: 20px;
+    box-shadow:  inset 1px 1px 1px rgb(17, 14, 8);
+    height: 3vh;
+    border: none;
+    padding: 2%;
+    margin: 1%;
+}
+section {
+    background-color: rgb(255, 127, 191);
     display: flex;
     flex-direction: column;
-    
+    align-items: center;
+    padding: 2%;
+}
+
+table {
+    border-style: double;
 }
